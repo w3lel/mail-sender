@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 2,
+  "components": [
+    {
+      "text": "# Hi, this is  4at Lemova",
+      "type": "text",
+      "id": "Field_19lzjam"
+    },
+    {
+      "label": "mail",
+      "type": "textfield",
+      "id": "Field_0uc4uhw",
+      "key": "mailAdress"
+    },
+    {
+      "label": "Text ",
+      "type": "textfield",
+      "id": "Field_1w78bgs",
+      "key": "text"
+    }
+  ],
+  "type": "default",
+  "id": "text",
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.16"
+}

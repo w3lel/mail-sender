@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0dbo208" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.11.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="Process_17j2ywk" name="kekw" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_17wtw99</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_1pa4aet">
+      <bpmn:incoming>Flow_13qewhs</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="user-test" name="User Task">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="emailAdress" label="Hi, this me " type="string" />
+          <camunda:formField id="text" label="kekw" type="string" />
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${testService}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_17wtw99</bpmn:incoming>
+      <bpmn:outgoing>Flow_12svs06</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="test-service" name="Test service&#10;" camunda:delegateExpression="${testService}">
+      <bpmn:incoming>Flow_12svs06</bpmn:incoming>
+      <bpmn:outgoing>Flow_13qewhs</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_17wtw99" sourceRef="StartEvent_1" targetRef="user-test" />
+    <bpmn:sequenceFlow id="Flow_12svs06" sourceRef="user-test" targetRef="test-service" />
+    <bpmn:sequenceFlow id="Flow_13qewhs" sourceRef="test-service" targetRef="Event_1pa4aet" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_17j2ywk">
+      <bpmndi:BPMNEdge id="Flow_17wtw99_di" bpmnElement="Flow_17wtw99">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="430" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12svs06_di" bpmnElement="Flow_12svs06">
+        <di:waypoint x="530" y="117" />
+        <di:waypoint x="770" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13qewhs_di" bpmnElement="Flow_13qewhs">
+        <di:waypoint x="870" y="117" />
+        <di:waypoint x="992" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1pa4aet_di" bpmnElement="Event_1pa4aet">
+        <dc:Bounds x="992" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_188du2v_di" bpmnElement="user-test">
+        <dc:Bounds x="430" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_014e8ik_di" bpmnElement="test-service">
+        <dc:Bounds x="770" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
